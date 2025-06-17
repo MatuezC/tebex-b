@@ -6,6 +6,10 @@ app.use(express.json());
 
 app.post("/tebex", (req, res) => {
   console.log("Webhook recibido: ", req.body);
+  if(req.body.type == "validation.webhook") {
+    console.log("Validacion de webhook detectada");
+    return res.status(200).send("OK");
+  }
   res.status(200).send("OK");
 });
 
