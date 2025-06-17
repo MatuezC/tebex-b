@@ -4,9 +4,12 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.send("OK");
+});
+
 app.post("/tebex", (req, res) => {
   console.log("Webhook recibido:", req.body);
-
   res.status(200).send("OK");
 });
 
